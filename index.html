@@ -18,6 +18,15 @@
       align-items: center;
     }
 
+    .container {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.4);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
     .wrapper {
       background-color: rgba(255, 255, 255, 0.463);
       padding: 30px;
@@ -25,6 +34,29 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       max-width: 500px;
       width: 100%;
+    }
+
+    .image-box {
+      position: relative;
+      width: 200px;
+    }
+
+    .image-box img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .birthday-text {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #ff4081;
+      text-align: center;
     }
 
     h1 {
@@ -68,21 +100,28 @@
 </head>
 <body>
 
-  <div class="wrapper">
-    <h1>GWA Calculator</h1>
-
-    <div class="input-group">
-      <label for="subjectCount">How many subjects?</label>
-      <input type="number" id="subjectCount" min="1">
-      <button onclick="generateSubjectInputs()">Next</button>
+  <div class="container">
+    <div class="image-box">
+      <div class="birthday-text">🎉 Happy Birthday! 🎉</div>
+      <img src="yoh.jpg" alt="Birthday Image"> <!-- Replace with your image path -->
     </div>
 
-    <form id="gwaForm" onsubmit="calculateGWA(event)">
-      <div id="subjectInputs" class="subject-inputs"></div>
-      <button type="submit" style="display: none;" id="calculateBtn">Calculate GWA</button>
-    </form>
+    <div class="wrapper">
+      <h1>GWA Calculator</h1>
 
-    <div id="result" class="result"></div>
+      <div class="input-group">
+        <label for="subjectCount">How many subjects?</label>
+        <input type="number" id="subjectCount" min="1">
+        <button onclick="generateSubjectInputs()">Next</button>
+      </div>
+
+      <form id="gwaForm" onsubmit="calculateGWA(event)">
+        <div id="subjectInputs" class="subject-inputs"></div>
+        <button type="submit" style="display: none;" id="calculateBtn">Calculate GWA</button>
+      </form>
+
+      <div id="result" class="result"></div>
+    </div>
   </div>
 
   <script>
